@@ -14,5 +14,5 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-//exportando o banco de dados
+//exportando banco de dados
 export { db };
