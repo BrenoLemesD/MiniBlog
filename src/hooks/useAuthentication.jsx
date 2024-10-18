@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
+  logout,
 } from "firebase/auth";
 
 import { useState, useEffect } from "react";
@@ -22,7 +23,7 @@ export const useAuthentication = () => {
       return;
     }
   }
-
+  //Resgister
   const createUser = async (data) => {
     checkIfIsCancelled();
 
@@ -60,12 +61,6 @@ export const useAuthentication = () => {
     setLoading(false);
   };
 
-  const logout = () => {
-    checkIfIsCancelled();
-
-    signOut(auth);
-  };
-
   const login = async (data) => {
     checkIfIsCancelled();
 
@@ -88,15 +83,17 @@ export const useAuthentication = () => {
       } else {
         systemErrorMessage = "Ocorreu um erro, por favor tenta mais tarde.";
       }
-
-      console.log(systemErrorMessage);
-
-      setError(systemErrorMessage);
     }
 
-    console.log(error);
-
     setLoading(false);
+    setError(systemErrorMessage);
+  };
+
+  //logout
+  const logout = () => {
+    checkIfIsCancelled();
+
+    signOut(auth);
   };
 
   useEffect(() => {
