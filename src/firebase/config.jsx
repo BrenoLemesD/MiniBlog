@@ -1,3 +1,4 @@
+import { getAuth } from "firebase/auth"; // Adicione essa linha
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -12,7 +13,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-const auth = getAuth(app);
+const auth = getAuth(app); // Aqui você usa o getAuth, então ele precisa estar importado
 
 export { db, auth };

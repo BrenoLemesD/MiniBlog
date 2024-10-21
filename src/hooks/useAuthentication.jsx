@@ -15,6 +15,8 @@ export const useAuthentication = () => {
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
+  const auth = getAuth();
+
   function checkIfIsCancelled() {
     if (cancelled) {
       return;

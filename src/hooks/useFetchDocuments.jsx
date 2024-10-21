@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import {
   collection,
-  query, //pega o dado
+  query,
   orderBy,
   onSnapshot,
-  where, //filtro dos resultados
+  where,
 } from "firebase/firestore";
 
 export const useFetchDocuments = (docCollection, search = null, uid = null) => {
